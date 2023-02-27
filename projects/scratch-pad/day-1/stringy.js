@@ -15,8 +15,8 @@
 function length(string) {
     // YOUR CODE BELOW HERE //
     
-    // return length property of the input
-    return string.length;
+    // return useing length property of the input
+    return string.length; // test passed 
 
 
     // YOUR CODE ABOVE HERE //
@@ -27,7 +27,8 @@ function length(string) {
  */
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
-
+// return new string useing toLowerCase method
+return string.toLowerCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -38,7 +39,8 @@ function toLowerCase(string) {
  */
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
-
+// return an uppercased string using toUpperCase method
+    return string.toUpperCase();
 
 
     // YOUR CODE ABOVE HERE //
@@ -59,7 +61,7 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-
+// return new string with dash between the words
 
 
     // YOUR CODE ABOVE HERE //
@@ -112,7 +114,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+// return both string into one by concating
+return stringOne + stringTwo;
 
 
     // YOUR CODE ABOVE HERE //
