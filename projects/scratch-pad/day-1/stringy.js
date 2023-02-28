@@ -82,7 +82,8 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
+    // in new var to convert string into array to acces 1st letter in string 
+    var strAry = string.split();
     
 
     // YOUR CODE ABOVE HERE //
@@ -135,7 +136,7 @@ return stringOne + stringTwo; // test passed
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments); // given; this pulls the string into array
-    // now in array use .join method to convert back to string
+    // now in array; use .join method to convert back to string
     return args.join(''); // test passed
 
 
@@ -153,7 +154,13 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-// use if 
+    // int new var to convert ino array 
+    var arrs = Array.from(arguments);
+    // now given 2 arrays compare length 
+    
+    
+
+
 
 
     // YOUR CODE ABOVE HERE //
