@@ -28,7 +28,7 @@ function length(string) {
 function toLowerCase(string) {
     // YOUR CODE BELOW HERE //
 // return new string useing toLowerCase method
-return string.toLowerCase();
+return string.toLowerCase(); //  test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -40,7 +40,7 @@ return string.toLowerCase();
 function toUpperCase(string) {
     // YOUR CODE BELOW HERE //
 // return an uppercased string using toUpperCase method
-    return string.toUpperCase();
+    return string.toUpperCase(); // test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -61,8 +61,9 @@ function toUpperCase(string) {
  */
 function toDashCase(string) {
     // YOUR CODE BELOW HERE //
-// return new string with dash between the words
-
+// return new string with dash between the words all lowercase
+// use split, join, and toLowerCase methods
+ return string.split(' ').join('-').toLowerCase();// test passed
 
     // YOUR CODE ABOVE HERE //
 }
@@ -115,7 +116,7 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 // return both string into one by concating
-return stringOne + stringTwo;
+return stringOne + stringTwo; // test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -133,7 +134,9 @@ return stringOne + stringTwo;
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(arguments);
+    var args = Array.from(arguments); // given; this pulls the string into array
+    // now in array use .join method to convert back to string
+    return args.join(''); // test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -150,7 +153,7 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+// use if 
 
 
     // YOUR CODE ABOVE HERE //
@@ -165,6 +168,18 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
+// if first string is longer then second return 1
+    if(stringOne.localCompare(stringTwo)){
+        return 1;
+    // if stringTwo is longer then stringOne return -1
+    } else if(stringTwo.localCompare(stringOne)){
+        return -1;
+    // if they are equal return 0    
+    } else{
+        return 0;
+    }
+    
+    
 
 
 
