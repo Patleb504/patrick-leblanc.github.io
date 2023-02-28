@@ -45,7 +45,7 @@ function greeter(hour) {
         console.log('Good Evening!');
     }else if(hour <= 23){
         console.log('Good Night!');
-    }
+    } // will not use else bc there are only 23 hours in a day 
     
     // YOUR CODE ABOVE HERE //
 }
