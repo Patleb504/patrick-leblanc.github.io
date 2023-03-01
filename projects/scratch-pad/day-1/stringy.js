@@ -186,17 +186,7 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-// if first string is longer then second return 1
-    if(stringOne.localCompare(stringTwo)){
-        return 1;
-    // if stringTwo is longer then stringOne return -1
-    } else if(stringTwo.localCompare(stringOne)){
-        return -1;
-    // if they are equal return 0    
-    } else{
-        return 0;
-    }
-    
+    return stringTwo.localeCompare(stringOne);                  // test pass
     
 
 
@@ -214,7 +204,7 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    return stringOne.localeCompare(stringTwo);      // test pass
 
 
 
