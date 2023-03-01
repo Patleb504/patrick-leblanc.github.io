@@ -14,13 +14,15 @@ function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
     // int for loop to loop through numbers 1-100
     for(var i = 1; i <= 100; i++){
-        // if 
+        // use if else chain to determan multiples of 3 or 5
         if (i % 3 === 0){
             console.log('Fizz');
         }else if(i % 5 === 0){
             console.log('Buzz');
+            // find if multiples of 3 and 5 log fizBuzz
         }else if(i % 3 === 0 && i % 5 === 0){
             console.log('FizzBuzz');
+            // else log the number
         }else {
             console.log(i);
         }

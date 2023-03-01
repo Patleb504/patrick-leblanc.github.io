@@ -132,7 +132,7 @@ function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
   // int an empty array
   var arr = [];
-  // use for in loop to get values
+  // use for in loop to get values || how to loop in reverse
   for (var key in object){
     // push object values into array
     arr.push(object[key]);
