@@ -12,13 +12,26 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+    // int for loop to loop through numbers 1-100
+    for(var i = 1; i <= 100; i++){
+        // if 
+        if (i % 3 === 0){
+            console.log('Fizz');
+        }else if(i % 5 === 0){
+            console.log('Buzz');
+        }else if(i % 3 === 0 && i % 5 === 0){
+            console.log('FizzBuzz');
+        }else {
+            console.log(i);
+        }
+    }
 
 
 
     // YOUR CODE GOES ABOVE HERE //
 }
 
-
+console.log(fizzBuzz(100));
 
 
 
