@@ -37,9 +37,11 @@ function isArray(value) {
 function isObject(value) { //{a: 1, b: 2}-- true  //null new date()--false
     // YOUR CODE BELOW HERE //
 // typeof operator 
-    // if(typeof value === 'object' && / not null/ && /not an array/ && /not date value){
-    //             return true;
-    // }
+    if(typeof value === 'object' && !null && !isArray && !date){
+                return true;
+    } else{
+        return false;
+    }
 
 
     // int if chain to determan if value is an object return true or false

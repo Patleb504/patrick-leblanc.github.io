@@ -104,7 +104,7 @@ function modifyStrings(strings, modify) {       // modfiy is a function internal
 
     }
         return result;
-    
+
     
     // YOUR CODE ABOVE HERE //
 }
@@ -123,9 +123,13 @@ function allStringsPass(strings, test) {  // test is function // test => functio
     // YOUR CODE BELOW HERE //
     // int for loop to loop strings 
     for(var i = 0; i < strings.length; i++){
-
+        // int  if statement to see if passed
+        if (test(strings[i]) === false){
+            return false;
+        }
+        
     }
-    
+        return true;
     
     
     // YOUR CODE ABOVE HERE //
