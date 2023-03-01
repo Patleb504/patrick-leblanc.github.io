@@ -14,7 +14,12 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    // int if chain to determan if value is an array 
+    if (Array.isArray(value)){
+        return true;
+    }else {
+        return false;                  // test pass
+    }
     
     
     
@@ -31,7 +36,12 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
+    // int if chain to determan if value is an object return true or false
+    if(object.isObject(value)){
+        return true;
+    }else {
+        return false;
+    }
     
     
     
@@ -46,7 +56,7 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    // is it an array || is it object?
     
     
     
@@ -74,7 +84,8 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
+    // return string value
+    return String(value);
     
     
     
