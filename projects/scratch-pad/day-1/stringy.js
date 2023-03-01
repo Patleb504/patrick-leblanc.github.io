@@ -82,9 +82,14 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    // in new var to convert string into array to acces 1st letter in string 
-    var strAry = string.split();
-    
+    // int if else chain using .toLowerCase()
+    if (string[0].toLowerCase() === char){
+        return true;
+    } else if (string[0].toUpperCase() === char){
+        return true;
+    }else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -103,6 +108,15 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
+// int if else statement using index of string to compare with char upper and lower case
+// use .length - 1 to get last letter
+if (string[string.length - 1].toLowerCase() === char){
+    return true;
+}else if (string[string.length - 1].toUpperCase() === char){
+    return true;
+}else {
+    return false;
+}
 
 
 
@@ -117,7 +131,7 @@ function endsWith(string, char) {
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 // return both string into one by concating
-return stringOne + stringTwo; // test passed
+return stringOne + stringTwo;                                   // test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -137,7 +151,7 @@ function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments); // given; this pulls the string into array
     // now in array; use .join method to convert back to string
-    return args.join(''); // test passed
+    return args.join('');                                               // test passed
 
 
     // YOUR CODE ABOVE HERE //
@@ -154,15 +168,12 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    // int new var to convert ino array 
-    var arrs = Array.from(arguments);
-    // now given 2 arrays compare length 
-    
-    
-
-
-
-
+    // int if else to find longest useing.length
+    if (stringOne.length > stringTwo.length){
+        return stringOne;
+    }else {
+        return stringTwo;                               // test pass
+    }
     // YOUR CODE ABOVE HERE //
 }
 
