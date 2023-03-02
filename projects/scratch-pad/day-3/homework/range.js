@@ -27,24 +27,15 @@ function range(start, end) {
     var outPut1 = [];
     var outPut2 = [];
     // use for loop to loop through 1param
-    for(var i = 0; i < start.length; i++){
-        outPut1.push(start[i]);
-    }
-    for(var i = 0; i < end.length; i++){
-        outPut2.push(end[i]);
-    }
-    // int if else to compair and return range 
-    if (outPut1 > outPut2){
-        return range(end, start);
-    } else{
-        return range(start, end);
-    }
+   for (var i = 0; i <= start )
+
+    // use if statement to compare if 1st arg is > the 2nd return array in reverse order
     
     
     
     // YOUR CODE GOES ABOVE HERE //
 }
-console.log(range(1, 5));
+
 
 
 
