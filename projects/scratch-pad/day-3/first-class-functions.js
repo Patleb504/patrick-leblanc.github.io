@@ -103,7 +103,7 @@ function modifyStrings(strings, modify) {       // modfiy is a function internal
          result.push(modify(strings[i]));  
 
     }
-        return result;
+        return result;                                      // test pass
 
     
     // YOUR CODE ABOVE HERE //
@@ -129,7 +129,7 @@ function allStringsPass(strings, test) {  // test is function // test => functio
         }
         
     }
-        return true;
+        return true;                                                    // test pass
     
     
     // YOUR CODE ABOVE HERE //
