@@ -29,7 +29,7 @@ function range(start, end) {
    // int a conditional statement to find which for loop to use (if first arg is > then senond return in reverse)
    if(start > end ){
     // int for loop to loop through params
-    for(var i = start + 1; i <= end; i--){
+    for(var i = start; i <= end; i++){
         outPut1.push(i);
     }
     // return outPut1 in reverse
