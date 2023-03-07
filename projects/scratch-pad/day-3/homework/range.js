@@ -23,16 +23,21 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    // int 2 var outPut1 & outPut2 with empty []
-    var outPut1 = [];
-    var outPut2 = [];
-    // use for loop to loop through 1param
-   for (var i = 0; i <= start )
-
-    // use if statement to compare if 1st arg is > the 2nd return array in reverse order
-    
-    
-    
+    // int var outPut1 with empty []
+   var outPut1 = [];
+   
+   // int a conditional statement to find which for loop to use (if first arg is > then senond return in reverse)
+   if(start > end ){
+    // int for loop to loop through params
+    for(var i = start + 1; i <= end; i--){
+        outPut1.push(i);
+    }
+    // return outPut1 in reverse
+    return outPut1.reverse();
+   } else {
+        return outPut1;
+}
+       
     // YOUR CODE GOES ABOVE HERE //
 }
 
