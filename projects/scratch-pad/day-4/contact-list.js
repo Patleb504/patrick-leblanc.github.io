@@ -34,8 +34,15 @@
  */
 
 // YOUR CODE GOES BELOW HERE //
-function makeContact(id, nameFirst, nameLast) {
-
+function makeContact(id, nameFirst, nameLast) { // FACTORY FUNCTION RETURNS AN OBJECT {id: ?, nameFirst: ?, nameLast: ?}
+// int an empty obj to hold key/value pairs
+var obj = {};
+// lets add in our keys to obj 
+obj.id = id;
+obj.nameFirst = nameFirst;
+obj.nameLast = nameLast;
+// return obj to create an object with these keys when function makeContact is called
+return obj;
 } 
 
 
@@ -43,12 +50,27 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    var contacts = []; 
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
+        },
+        addContact: function(contact){
+            return contacts.push(contact);
+        },
+        findContact: function(fullName){
+            // int for loop to loop through and find full name
+           
+
+            
+        },
+        removeContact: function(contact){
+
+        },
+        printAllContactNames: function(){
+
         }
     }
 }
