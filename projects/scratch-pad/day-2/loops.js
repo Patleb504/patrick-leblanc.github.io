@@ -130,10 +130,12 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  // int object ke
-  var keys = Object.keys(obj);
+  // find keys with object.keys()- will put keys in array 
+  var keys = Object.keys(object);
+  // use for loop to loop through in reverse
   for (var i = keys.length - 1; i >= 0; i--) {
-    console.log(obj[keys[i]]);
+    //log object[keys[i]]- from loop in reverse order
+    console.log(object[keys[i]]);
   }
 
   // console.log(printObjectValuesInReverse(object));
