@@ -36,13 +36,12 @@ function isArray(value) {
  */
 function isObject(value) { //{a: 1, b: 2}-- true  //null new date()--false
     // YOUR CODE BELOW HERE //
-// typeof operator 
-    if(typeof value === {a: 1, b: 2} && !null && ![] && !new Date() && !1 && !"string" && !true){
+// use if statement and typeof operator to find if value === 'object' make sure to rule out other objects  
+    if(typeof value === 'object' && value !== null && Array.isArray(value) === false && value instanceof Date === false){
                 return true;
     } 
         return false;
-    
-    
+     
     // YOUR CODE ABOVE HERE //
 }
 
@@ -55,11 +54,17 @@ function isObject(value) { //{a: 1, b: 2}-- true  //null new date()--false
 function isCollection(value) { // [ ] or is it an { }
     // YOUR CODE BELOW HERE //
     // is it an array || is it object?
-    
+    // int conditional cain to find if its an array or object else return false
+    if (Array.isArray(value) && typeof value === 'object' && value !== null && value instanceof Date === false){
+        return true;
+    } else {
+        return false;
+    }
     
     
     // YOUR CODE ABOVE HERE //
 }
+console.log(isCollection());
 
 /**
  * Given an input value, return the type of the value as a String
