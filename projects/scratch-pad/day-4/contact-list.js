@@ -61,7 +61,8 @@ function makeContactList() {
             return contacts.push(contact);
         },
         findContact: function(fullName){
-            // int for loop to loop through and find full name
+            // int for loop to loop through and find the first and last name then concat them to become a full name 
+            
            
 
 

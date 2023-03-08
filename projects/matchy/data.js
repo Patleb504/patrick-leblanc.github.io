@@ -71,13 +71,40 @@ var animals = [];
 // push our animal to this new animals array.
 animals.push(animal);
 // log animals
+// console.log(animals);
+// declare duck as a var and assign it to an object with key/value pairs and an array 
+var duck = {
+  species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh']
+}
+// push duck to animals
+animals.push(duck);
 console.log(animals);
-
+var mouse = {
+  species: 'mouse', name: 'jerry', noises: ['sqeek', 'cheez']
+}
+animals.push(mouse);
+var cow = {
+  species: 'cow', name: 'betsy', noises: ['moo', 'chomp']
+}
+animals.push(cow);
+// console.log(animals); //// looks good 
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// int list array 
 
+// i like arrays because you can loop though and have indexes.
+var friends =[]; 
+// int function that returns a random index of the input array using Math.random
+function getRandom(array){
+  var ran = Math.floor(Math.random() * 4);
+  return ran;
+}
+  getRandom(animals);
+  console.log(friends);
+  cow.friends = friends;
+  
 
 
 /**
