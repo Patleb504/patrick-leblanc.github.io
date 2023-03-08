@@ -84,7 +84,7 @@ function typeOf(value) {     // identify array null and date object
     // YOUR CODE BELOW HERE //
 // typeof value ===> 'string data type'
     // return string value
-    return String(value);
+    return typeof value;
     
     
     

@@ -64,7 +64,7 @@ function makeContactList() {
             // int for loop to loop through and find full name
            
 
-            
+
         },
         removeContact: function(contact){
 
