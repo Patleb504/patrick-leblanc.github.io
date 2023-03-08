@@ -23,14 +23,16 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-      // int var outPut1 with empty []
+      // int const arr with empty []
     const arr = [];
-    
+    // declare 2 let loopStart and loopFnish with conditional ternary 
     let loopStart = start > end ? end : start;
     let loopFinish = start > end ? start : end;
+    // int for loop and push i to arr 
         for (let i = loopStart; i <= loopFinish; i++) {
         arr.push(i);
     }
+    // return using ternary conditional  if start > end use reverse method else no reverse method
     return start > end ? arr.reverse() : arr;
 
     // YOUR CODE GOES ABOVE HERE //
