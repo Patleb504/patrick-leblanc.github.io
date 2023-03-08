@@ -37,7 +37,7 @@ function isArray(value) {
 function isObject(value) { //{a: 1, b: 2}-- true  //null new date()--false
     // YOUR CODE BELOW HERE //
 // typeof operator 
-    if(typeof value === {a: 1, b: 2} && !null && ![] && !new Date() && !1 && !"string" && !false){
+    if(typeof value === {a: 1, b: 2} && !null && ![] && !new Date() && !1 && !"string" && !true){
                 return true;
     } 
         return false;

@@ -24,18 +24,14 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
       // int var outPut1 with empty []
-   var outPut1 = [];
-   // int for loop to loop through prams
-   for(var i = start; i <= end; i++){
-    outPut1.push(i);
-}
-   // int a conditional statement to find which for loop to use (if first arg is > then senond return in reverse)
-   if(start > end ){ 
-    // return outPut1 in reverse
-    return outPut1.reverse();
-   } else {
-    return outPut1;
-   }
+    const arr = [];
+    
+    let loopStart = start > end ? end : start;
+    let loopFinish = start > end ? start : end;
+        for (let i = loopStart; i <= loopFinish; i++) {
+        arr.push(i);
+    }
+    return start > end ? arr.reverse() : arr;
 
     // YOUR CODE GOES ABOVE HERE //
 }
