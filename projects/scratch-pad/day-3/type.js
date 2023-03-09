@@ -55,10 +55,20 @@ function isCollection(value) { // [ ] or is it an { }
     // YOUR CODE BELOW HERE //
     // is it an array || is it object?
     // int conditional cain to find if its an array or object else return false
-    if (Array.isArray(value) && typeof value === 'object' && value !== null && value instanceof Date === false){
+    if (Array.isArray(value)) {
         return true;
-    } else {
+    }else if (value === null){
         return false;
+    }else if (value instanceof Date){
+        return false;
+    }else if (typeof value === 'string'){
+        return false;
+    } else if (typeof value === 'number'){
+        return false;
+    }else if (typeof value === 'boolean'){
+        return false;
+    }else {
+        return true;
     }
     
     
@@ -70,15 +80,15 @@ console.log(isCollection());
  * Given an input value, return the type of the value as a String
  * 
  * Types are one of: 
- *    - "string"
- *    - "array"
+ *    - "string" -
+ *    - "array" -
  *    - "object"
- *    - "undefined"
- *    - "number"
- *    - "boolean"
- *    - "null"
- *    - "function"
- *    - "date"
+ *    - "undefined" -
+ *    - "number" -
+ *    - "boolean" -
+ *    - "null" -
+ *    - "function" -
+ *    - "date" -
  * 
  * Examples:
  *    typeOf(134) -> "number"
@@ -88,10 +98,17 @@ console.log(isCollection());
 function typeOf(value) {     // identify array null and date object 
     // YOUR CODE BELOW HERE //
 // typeof value ===> 'string data type'
-    // return string value
-    return typeof value;
-    
-    
+    // return string value useing if else statements try ternary 
+    return Array.isArray(value) === true ? 'array'
+        : value === null ? 'null'
+        : value instanceof Date ? 'date'
+        : typeof value === function () {} ? 'function'
+        : typeof value === 'string' ? 'string'
+        : typeof value === Boolean ? 'boolean'
+        : typeof value === undefined ? 'undefined'
+        : typeof value === 'number' ? 'number'
+        : typeof value === 'object' ? 'object' 
+        : 'none' ;
     
     // YOUR CODE ABOVE HERE //
 }
