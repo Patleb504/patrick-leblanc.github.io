@@ -98,17 +98,20 @@ console.log(isCollection());
 function typeOf(value) {     // identify array null and date object 
     // YOUR CODE BELOW HERE //
 // typeof value ===> 'string data type'
-    // return string value useing if else statements try ternary 
-    return Array.isArray(value) === true ? 'array'
-        : value === null ? 'null'
-        : value instanceof Date ? 'date'
-        : typeof value === function(){} ? 'function'
-        : typeof value === 'string' ? 'string'
-        : typeof value === true ? 'boolean'
-        : typeof value === undefined ? 'undefined'
-        : typeof value === 'number' ? 'number'
-        : typeof value === 'object' ? 'object' 
-        : 'none' ;
+    // return string value useing if else statements
+      if(typeof value === 'string'){
+        return 'string';
+      } else if(value === null){
+        return 'null';
+      } else if (Array.isArray(value)){ 
+        return 'array';
+      } else if (typeof value === 'number'){
+        return 'number';
+      } else if (typeof value === 'function'){
+        return 'function';
+      } else if (value instanceof Date){
+        return'date';
+      }
     
     // YOUR CODE ABOVE HERE //
 }
