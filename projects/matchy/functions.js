@@ -16,12 +16,12 @@
 function search(array, str){
 // int for loop to loop through an array 
 for (var i = 0; i < array.length; i++){
-    if(array[i] === str){
-        return array[i];
-    } else {    
-            return null;
-    }
-}
+    if(array[i].name === str){
+        return array[i];  
+            
+    } 
+} 
+  return null
 }
 
 
@@ -30,20 +30,43 @@ for (var i = 0; i < array.length; i++){
 //////////////////////////////////////////////////////////////////////
 // declare funct with 3 parms array, string, and obj sould replace an animal obj 
 function replace(array, str, obj){
+    // int new {} if needed to replace 
     
+    for (var i = 0; i < array.length; i++){
+        if (array[i].name === str) {
+             array.splice(i, 1, obj);
+        }
+    }
 }
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+function remove(array, str){
+    //int for loop to find match 
+    for (var i = 0; i < array.length; i++){
+        if (array[i].name === str){
+            array.splice(i, 1, );
+        }
+    }
 
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// int add function with 2 parsm 
+    function add(array, obj){
+        for (var i = 0; i < array.length; i++){
+            if ((array[i].name !== obj.name) && (array[i].name.length > 0) && (array[i].species.length > 0)){
 
+            } 
+            
+        }
+       
+    }
 
 
 /**
