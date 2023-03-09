@@ -64,7 +64,7 @@ function makeContactList() {
             // int for loop to loop through and find the first and last name then concat them to become a full name 
             for ( var i = 0; i < contacts.length; i++){ 
                 if (contacts[i].firstName + " " + contacts[i].lastName === fullName){
-                    return fullName[i];
+                    return contacts[i];
                 } else {
                     return undefined;
                 }
