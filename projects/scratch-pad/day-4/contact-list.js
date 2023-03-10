@@ -63,20 +63,35 @@ function makeContactList() {
         findContact: function(fullName){
             // int for loop to loop through and find the first and last name then concat them to become a full name 
             for ( var i = 0; i < contacts.length; i++){ 
-                if (contacts[i].firstName + " " + contacts[i].lastName === fullName){
+                if (contacts[i].nameFirst + " " + contacts[i].nameLast === fullName){
                     return contacts[i];
-                } else {
-                    return undefined;
-                }
+                } 
             }
-           
-
 
         },
         removeContact: function(contact){
-
+            // int for loop to find contacts
+            for (var i = 0; i < Array.length; i++){
+                // use splice method to remove contact 
+                contacts.splice(i, 1, );
+            }
         },
         printAllContactNames: function(){
+            // int name var with empty string
+            var names = "";
+            // int for loop to loop through contacts 
+            for (var i = 0; i < contacts.length; i++){
+                // int if statement to check if names is empty, if yes create a line break in names
+                if(names !== ""){
+                    names += '\n';
+                }
+                // reasign names to nameFirst concated with nameLast to form full names 
+                names += contacts[i].nameFirst + " " + contacts[i].nameLast;
+            }
+            // log to check 
+            // console.log(names); // looks good 
+            // return names as full names! 
+            return names;
 
         }
     }

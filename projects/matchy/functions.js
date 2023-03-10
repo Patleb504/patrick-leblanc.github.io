@@ -60,13 +60,13 @@ function remove(array, str){
 // int add function with 2 parsm 
     function add(array, obj){
         for (var i = 0; i < array.length; i++){
-            if ((array[i].name !== obj.name) && (array[i].name.length > 0) && (array[i].species.length > 0)){
-
+            if ((array[i].name !== obj.name) && (obj.name.length > 0) && (obj.species.length > 0)){
+                    
             } 
             
         }
        
-    }
+    }   
 
 
 /**
