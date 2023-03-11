@@ -63,14 +63,16 @@ function add(arr, obj){
     var objNew = {};
     // int for loop to loop thro array
     for (var i = 0; i < arr.length; i++){
-        // int if chain to check name 
+        // int if chain to check name store obj into new var
         if(arr[i].name !== obj.name) {
             objNew = obj;
         }
         else {return null;}
     }
+    // int nested if to check the length of obj name and species
     if (objNew.name.length > 0) {
         if (objNew.species.length > 0) {
+            // push newobj into the animals array
             arr.push(objNew);
         }
     }
