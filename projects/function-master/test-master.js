@@ -62,7 +62,7 @@
         in_foo = this.from_yay;
       }
       assert.equal(in_foo, "i'm in foo");
-      assert.equal(this.from_yay, "???");
+      assert.equal(this.from_yay, undefined);
     }
     yay();
     foo();
@@ -92,11 +92,11 @@
     }
 
     yay();
-    assert.equal(this.counter, "");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "");
+    assert.equal(this.counter, undefined);
     yay();
-    assert.equal(this.counter, "");
+    assert.equal(this.counter, undefined);
   });
 
   QUnit.test("Inner scope can access outer scope", function(assert){
@@ -133,9 +133,9 @@
     yay();
     assert.equal(name, "greg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreg");
     yay();
-    assert.equal(name, "???");
+    assert.equal(name, "greggreggreg");
   });
 
   QUnit.test("We can pass functions to other functions and then run them.", function(assert){
