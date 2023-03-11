@@ -58,24 +58,23 @@ function remove(array, str){
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 // int add function with 2 parsm 
-    function add(array, obj){
-        // int new var to hold obj if needed to return 
-        var pusObj = obj;
-        if(obj.name.length <= 0 && obj.species.length <= 0){
-            
+function add(arr, obj){
+    // int new var to hold obj
+    var objNew = {};
+    // int for loop to loop thro array
+    for (var i = 0; i < arr.length; i++){
+        // int if chain to check name 
+        if(arr[i].name !== obj.name) {
+            objNew = obj;
         }
-        for (var i = 0; i < array.length; i++){
-          // int if statement compaire if all false use 
-          if (array[i].name !== obj.name){ 
-            
-          }
-               
+        else {return null;}
+    }
+    if (objNew.name.length > 0) {
+        if (objNew.species.length > 0) {
+            arr.push(objNew);
         }
-       if (obj.name.length > 0){
-        
-       }
-    }   
-console.log(add(animals, {name: 'Nellie', species:"fish" }));
+    }
+}
 
 /**
  * You did it! You're all done with Matchy!
