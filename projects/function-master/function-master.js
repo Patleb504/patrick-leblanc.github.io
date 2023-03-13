@@ -2,6 +2,8 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const { slice } = require("lodash");
+
 function objectValues(object) {
     return Object.values(object);
 } 
@@ -39,8 +41,10 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    var text = "pat the water rat";
-    return text.toUpperCase();
+    if (typeof string === 'string'){
+        return string.charAt(0).toUpperCase();
+    }
+    
 
 }
 
@@ -59,8 +63,8 @@ function capitalizeAllWords(string) {
 
 function welcomeMessage(object) {
     var well = 'Welcome';
-if (object.name === name){
-    
+if (object['name'] === 'name'){
+    return well + 'name';
 }
 }
 
