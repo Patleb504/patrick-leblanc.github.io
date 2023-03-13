@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { slice } = require("lodash");
+// const { slice } = require("lodash");
 
 function objectValues(object) {
     return Object.values(object);
@@ -21,7 +21,9 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    return Object.values(object).join(' ');
+    if(typeof Object.values(object) === 'string'){
+
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -41,9 +43,8 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    if (typeof string === 'string'){
-        return string.charAt(0).toUpperCase();
-    }
+    var capWord = string.charAt(0).toUpperCase() + string.slice(1);
+    return capWord;
     
 
 }
@@ -53,8 +54,12 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    var text = "pat the water rat";
-    return text.toUpperCase();
+    let arr = string.split(' ');
+    for (var i = 0; i < arr.length; i++){
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+
+    }
+    return arr.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -62,18 +67,16 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    var well = 'Welcome';
-if (object['name'] === 'name'){
-    return well + 'name';
+    return 'Welcome ' + object.name + '!';
 }
-}
+console.log(welcomeMessage({name: 'Pat'}));
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+return object.name + ' is a ' + object.species;
 }
 
 //////////////////////////////////////////////////////////////////////
