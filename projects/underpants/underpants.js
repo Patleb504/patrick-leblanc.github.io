@@ -50,12 +50,12 @@ _.typeOf = function(value){
         return 'string';
     }else if (Array.isArray(value)){
         return 'array';
-    }else if (typeof value === 'object'){
-        return 'object';
+    }else if (value === null){
+        return 'null';
     }else if (typeof value === 'number'){
         return 'number';
-    }else if(value === null){
-        return 'null';
+    }else if(typeof value === 'object'){
+        return 'object';
     }else if(typeof value === 'function'){
         return 'function';
     }else if(typeof value === 'boolean'){
@@ -64,6 +64,8 @@ _.typeOf = function(value){
         return 'undefined';
     }
 }
+console.log()
+
 
 /** _.first
 * Arguments:
@@ -92,11 +94,19 @@ _.first = function(array, num){
     if(num === undefined || num === NaN){
         return array[0];
     } 
+
     if (num < 1){
         return [];
     }
     if (num > array.length){
         return array;
+    }
+    if (num <= array.length){
+        let arr = [];
+        for(let i = 0; i < num; i++){
+            arr.push(array[i]);
+        }
+        return arr;
     }
     
     
@@ -124,6 +134,34 @@ _.first = function(array, num){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+_.last = function(array, num){
+    // determan if array is an not an array 
+    if (!Array.isArray(array)) {
+        return [];
+    }  
+    // determan if num is not given or not a number
+    if(num === undefined || num === NaN){
+        return array[array.length -1];
+    } 
+
+    if (num < 0){
+        return [];
+    }
+    if (num > array.length){
+        return array;
+    }
+    if (num <= array.length){
+        let arr = [];
+        for(let i = 0; i < num; i++){
+            arr.push(array[i]);
+        }
+        return arr;
+    }
+}
+
+
+
+
 
 /** _.indexOf
 * Arguments:
@@ -143,7 +181,15 @@ _.first = function(array, num){
 
 
 _.indexOf = function(array, value){
-
+// int for loop to find if value is inside of array
+for(let i = 0; i < array.length; i++){
+    if(array[i] === value){
+// return index of array if value is in array 
+        return i;
+    } 
+}
+// pop out of for loop to return -1 if value is not found in array
+    return -1;
 }
 
 
@@ -169,7 +215,7 @@ _.contains = function(array, value){
     for (let i = 0; i < array.length; i++){
         return array[i] === value ? true : false
     }
-        return false;
+
 }
 
 
@@ -326,24 +372,50 @@ _.each = function(collection, func){
 
 _.every = function(collection, func){
     // determine if func did not recive a value
-    if(func === undefined){
+    if(!func){
         // determaine if function is an array
         if(Array.isArray(collection)){
+            // int for loop to iterate
+            for (let i = 0; i < collection.length; i++){
+            // determane if current value is NOT truthy
+            if(!collection[i]){
+                return false;
+            }
+            }
 
-        } else {
+        } else { // else its an object 
+            for (let key in collection){
+                // determaine if current value is NOT truthy
+                if(!collection[i]){
+                    return false;
+                }
+            }
 
         }
         // else its an object
     } else {
+    // determine if its an array
         if(Array.isArray(collection)){
-
-        }else { 
+        // use for loop to lierate
+        for (let i = 0; i < collection.length; i++){
+            // determane if the result of invoking test function on current element, index,and collection is NOT truthy
+            if(!func(collection[i], i, collection)){
+                return false;
+            }
+        }
+        }else { // collection
+        // determine if invoking test function on current value, key, and collection is NOT truthy
+        for (let key in collection){
+            if(!func(collection[key], key, collection)){
+                return false;
+            }
+        }
 
         }
         
     }
     // determaine if function is an array
-    
+    return true;
 
     // else its an object
 }
