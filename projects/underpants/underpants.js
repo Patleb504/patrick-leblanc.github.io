@@ -85,10 +85,21 @@ _.typeOf = function(value){
 
 _.first = function(array, num){
     // determan if array is an not an array 
-    if (Array.isArray(array)) {
-
+    if (!Array.isArray(array)) {
+        return [];
     }  
-    return [num];
+    // determan if num is not given or not a number
+    if(num === undefined || num === NaN){
+        return array[0];
+    } 
+    if (num < 1){
+        return [];
+    }
+    if (num > array.length){
+        return array;
+    }
+    
+    
     // inf for loop  to loop in array 
         // else if if num is not given or not a number return just first element in array
 }
@@ -156,8 +167,9 @@ _.indexOf = function(array, value){
 _.contains = function(array, value){
     // int for loop to find value in array
     for (let i = 0; i < array.length; i++){
-        return array[i] === value ? true : false;
+        return array[i] === value ? true : false
     }
+        return false;
 }
 
 

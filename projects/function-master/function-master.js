@@ -69,7 +69,7 @@ function capitalizeAllWords(string) {
 function welcomeMessage(object) {
     return 'Welcome ' + object.name + '!';
 }
-console.log(welcomeMessage({name: 'Pat'}));
+console.log(welcomeMessage(object));
 
 //////////////////////////////////////////////////////////////////////
 // Function 8 - Profile Info /////////////////////////////////////////
