@@ -324,6 +324,32 @@ _.each = function(collection, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+    // determine if func did not recive a value
+    if(func === undefined){
+        // determaine if function is an array
+        if(Array.isArray(collection)){
+
+        } else {
+
+        }
+        // else its an object
+    } else {
+        if(Array.isArray(collection)){
+
+        }else { 
+
+        }
+        
+    }
+    // determaine if function is an array
+    
+
+    // else its an object
+}
+
+
+
 
 /** _.some
 * Arguments:
