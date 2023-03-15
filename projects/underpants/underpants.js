@@ -268,6 +268,16 @@ _.each = function(collection, func){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function (array){
+    // int new var and assign it to a [];
+    let newArr = [];
+    for (let i = 0; i < array.length; i++){
+       return  _.indexOf(array[i]);
+    }
+}
+
+
+
 
 /** _.filter
 * Arguments:
@@ -284,6 +294,13 @@ _.each = function(collection, func){
 * Extra Credit:
 *   use _.each in your implementation
 */
+
+_.filter = function (array, func){
+
+}
+
+
+
 
 
 /** _.reject
@@ -463,6 +480,32 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+// methods used  map filter reduce each = forEach
+_.reduce = function (array, func, seed) {
+    // int results var
+    let result;
+    //  step 4.  determine if seed is undefined
+    if (seed === undefined){
+        result = array[0];
+        // iterate using for loop
+        for (let i = 1; i < array.length; i++){
+            // reassign result to invoking function on result, current item, current index, and array
+            result - func(result, array[i], i, array);
+        }
+    } else {    //else seed is defined
+        result = seed;
+        // iterate using for loop 
+        for (let i = 0; i < array.length; i++){
+            // reassign result
+            result = func(result, array[i], i, array);
+        }
+    }
+    //return result
+}
+
+
+
 
 
 /** _.extend

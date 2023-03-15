@@ -92,7 +92,17 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+// determain if string of words has word in it 
+// int new var to hold sting of words as array
+ let strArr = string.split(' ');
+ // int for loop to see if string of word has word in 
+ for (let i = 0; i < strArr.length; i++){
+    if(strArr[i] === word){
+        return true;
+    }
+ }
+// return false if string does not contain word
+return false; 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -100,7 +110,9 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    // add name into objects friends array
+    object['friends'] = name;
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
