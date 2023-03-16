@@ -21,9 +21,7 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    if(typeof Object.values(object) === 'string'){
-
-    }
+    return object.values(object);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +65,11 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    
+    for (let key in object){
+        if(typeof object[key] === object['name']){
+            return `Welcome $object.name`;
+        }
+    }
     return `Welcome ${object.name}!`;
     
 
@@ -81,13 +83,22 @@ console.log(welcomeMessage({name: 'Pat'}));
 function profileInfo(object) {
 return `${object.name} is a ${object.species}`;
 }
-
+console.log(profileInfo(object));
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+// Should take an object, if this object has a noises array return them as a string separated by a space, if there are no noises return 'there are no noises' 
 function maybeNoises(object) {
-
+// int if chain to check if noises arr is in object
+if(Array.isArray(object['noises'])){
+    return object['noises'].join(' ');
+    // check if noises is undefined return no noises
+} else if(object['noises'] === undefined){
+    return `there are no noises`;
+    // check to see if noises has anything inside it 
+} else if(object['noises'].length === 0){
+    return `there are no noises`;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -114,7 +125,7 @@ return false;
 
 function addFriend (name, object) {
     // add name into objects friends array
-    object['friends'] = name;
+    object['friends'].push(name);
     return object;
 }
 
