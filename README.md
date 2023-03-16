@@ -35,3 +35,9 @@
 8) In terminal, type => os install
 9) Select bootcamp session
 10) Select project to install
+
+
+
+## how to cd back into current workspace (if terminal reads /workspace)
+1. in terminal, type => cd patrick-leblanc.github.io
+2. run git commands
