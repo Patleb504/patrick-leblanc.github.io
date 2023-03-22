@@ -94,13 +94,15 @@ _.first = function(array, num){
     if(num === undefined || num === NaN){
         return array[0];
     } 
-
+    // if num is less than 1(negative) return empty array
     if (num < 1){
         return [];
     }
+    // if num is greater than the length of array return the array
     if (num > array.length){
         return array;
     }
+    // if num is less than or equal to the array length
     if (num <= array.length){
         let arr = [];
         for(let i = 0; i < num; i++){
@@ -110,8 +112,8 @@ _.first = function(array, num){
     }
     
     
-    // inf for loop  to loop in array 
-        // else if if num is not given or not a number return just first element in array
+
+
 }
 
 
@@ -136,27 +138,19 @@ _.first = function(array, num){
 
 _.last = function(array, num){
     // determan if array is an not an array 
-    if (!Array.isArray(array)) {
-        return [];
-    }  
-    // determan if num is not given or not a number
-    if(num === undefined || num === NaN){
-        return array[array.length -1];
-    } 
-
-    if (num < 0){
-        return [];
+    if (!Array.isArray(array)) { //condition checks if the array is not an array
+        return []; // returns an empty array literal
     }
-    if (num > array.length){
+     if (isNaN(num) || num === null) {// condition checks if number is not a number or no value 
+     return array[array.length-1]; // return first element of array
+    } else if (num < 0) { // if number < 0 (negative)
+        return [];
+    } else if (num > array.length) { // if number is greater than the arrays length, return array;
         return array;
-    }
-    if (num <= array.length){
-        let arr = [];
-        for(let i = 0; i < num; i++){
-            arr.push(array[i]);
-        }
-        return arr;
-    }
+    } else if (num) {
+           return array.slice(array.length - num, array.length); // returning the last number of array
+  }
+ 
 }
 
 
@@ -211,10 +205,15 @@ for(let i = 0; i < array.length; i++){
 */
 
 _.contains = function(array, value){
-    // int for loop to find value in array
-    for (let i = 0; i < array.length; i++){
-        return array[i] === value ? true : false
+    // let bool = false
+    let bool = false;
+    // int for loop to check array
+    for( let i = 0; i < array.length; i++) {
+        if(array[i] === value){
+            return bool = true;
+        }
     }
+    return bool;
 
 }
 
@@ -270,10 +269,13 @@ _.each = function(collection, func){
 
 _.unique = function (array){
     // int new var and assign it to a [];
-    let newArr = [];
-    for (let i = 0; i < array.length; i++){
-       return  _.indexOf(array[i]);
+    let newArray = []; 
+    for (let i = 0; i < array.length; i++) //loop through array 
+   if ( _.indexOf(array, array[i]) === i) { //use indexOf() to locate values in array that are duplicates
+        newArray.push(array[i]); //push values to newArray
+        
     }
+  return newArray;
 }
 
 
@@ -296,7 +298,17 @@ _.unique = function (array){
 */
 
 _.filter = function (array, func){
+    let newArr =[];
+   
+    _.each(array, function(element, index, array){
+            if (func(element, index, array)) {
+                newArr.push(element);
+            }
+            
+   });
 
+   return newArr
+   
 }
 
 
@@ -315,6 +327,19 @@ _.filter = function (array, func){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, func){  // similar to the filter function
+
+    let newArr = _.filter(array, function(element, index, collection){
+        return !func(element, index, collection); //if func does not share elements with new function, return those elements in falsy array
+       
+     });
+     
+     return newArr;
+     
+
+}
+
 
 
 /** _.partition
@@ -337,6 +362,28 @@ _.filter = function (array, func){
 */
 
 
+_.partition = function (array, fun) {
+  
+    var newArr =[];
+    
+    var truthyArr = _.filter(array,fun);
+  
+    var falseyArr = _.reject(array,fun);
+  
+   newArr.push(truthyArr); // push truthy and falsy arrays into newArr
+   newArr.push(falseyArr);
+  
+  return newArr;
+  };
+  
+
+
+
+
+
+
+
+
 /** _.map
 * Arguments:
 *   1) A collection
@@ -353,6 +400,20 @@ _.filter = function (array, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function (collection, aFunction) {
+
+    var newArray = [];
+    
+     _.each(collection,function(element, index, collection) {
+      
+         newArray.push(aFunction(element,index, collection));
+    });
+        return newArray;
+    };
+
+
+
+
 
 /** _.pluck
 * Arguments:
@@ -364,6 +425,20 @@ _.filter = function (array, func){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function (arrayOfObjects, property) {
+   
+	
+    return	_.map(arrayOfObjects, function(element) { 
+         return  element[property];
+    });
+    
+    
+    
+    };
+
+
+
 
 
 /** _.every
@@ -462,6 +537,26 @@ _.every = function(collection, func){
 */
 
 
+_.some = function(collection, aFunction) {
+       
+    let onePass = false;
+    aFunction = aFunction || _.identity;
+ 
+  _.each(collection, function(e,i,c) {
+    if(aFunction(e,i,c)) {
+     onePass = true;
+     } else if (aFunction(e,i,c)) {
+        onePass;
+     }
+  });
+ 
+  return onePass;
+
+
+};
+
+
+
 /** _.reduce
 * Arguments:
 *   1) An array
@@ -482,27 +577,31 @@ _.every = function(collection, func){
 */
 
 // methods used  map filter reduce each = forEach
-_.reduce = function (array, func, seed) {
-    // int results var
-    let result;
-    //  step 4.  determine if seed is undefined
-    if (seed === undefined){
-        result = array[0];
-        // iterate using for loop
+
+
+_.reduce = function(array, func, seed){
+    let previousResult;
+    //if there is a seed
+    if(seed !== undefined){
+         previousResult = seed;
+        // use each to gain access to each value in the array
+        _.each(array, function (e,i,a){
+            //calling functin for every element, passing in previous result, element, index
+           previousResult = func(previousResult, e, i,a);
+        });
+    }else {
+        // use the first element of the array as the seed
+         previousResult = array[0];
+        // implement a loop to start iterating at my first index
         for (let i = 1; i < array.length; i++){
-            // reassign result to invoking function on result, current item, current index, and array
-            result - func(result, array[i], i, array);
-        }
-    } else {    //else seed is defined
-        result = seed;
-        // iterate using for loop 
-        for (let i = 0; i < array.length; i++){
-            // reassign result
-            result = func(result, array[i], i, array);
+          previousResult = func(previousResult, array[i], i, array);
         }
     }
-    //return result
-}
+// return my previous result variable
+return previousResult;
+    // if there is no seed
+};
+
 
 
 
@@ -522,6 +621,17 @@ _.reduce = function (array, func, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+
+
+
+_.extend = function (obj1,obj2,...obj) {
+  
+    // use Object.assign method to copy values from one object to the other
+   return Object.assign(obj1,obj2,...obj);
+    
+  };
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
