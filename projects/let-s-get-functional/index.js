@@ -53,21 +53,177 @@ let females = _.reduce(array, function(accumlator, current){ // number of female
     return females;
 };
 
-var oldestCustomer;
+var oldestCustomer = function (array){
+// use pluck function with parms array, 'name'
+var nameArray = _.pluck(array, 'name'); 
+// declare new var as ageArray call pluck(array, 'age)
+  var ageArray = _.pluck(array, 'age'); 
+  
+  //use math.max to find the max value. // use rest parameter to take multiple values
+  var oldestAge = Math.max(...ageArray); 
+  // loop through nameArray
+  for (let i = 0; i < nameArray.length; i++) { 
+    //if oldest age, return the name of that customer
+      if(oldestAge === ageArray[i]) { 
+          return nameArray[i];
+      }
+  }
+  
 
-var youngestCustomer;
+};
+  
 
-var averageBalance;
 
-var firstLetterCount;
+var youngestCustomer = function (array){
 
-var friendFirstLetterCount;
+// same as oldest costumer, use pluck and math.min
+    
+var nameArray = _.pluck(array,'name');
+var ageArray = _.pluck(array,'age');
 
-var friendsCount;
+var youngestAge = Math.min(...ageArray);
 
-var topThreeTags;
+for(let i = 0; i < nameArray.length; i++) {
+if(youngestAge === ageArray[i]) {
+    return nameArray[i];
+}
+}
 
-var genderCount;
+};
+
+
+var averageBalance = function (array){
+// use reduce
+
+return array.reduce(function(accumulator, person){
+   // use .replace to remove $ and ,   
+    return accumulator + parseFloat(person.balance.replace(/\$|,/g, '')) / array.length; 
+    // set seed to 0 
+      },0); 
+  };
+  
+
+var firstLetterCount = function(array, letter) {
+// reduce
+    _.reduce(array, function(accumulator, person)) {
+    // set name and letter to lowerCase for equal comparison
+    if(person.name[0].toLowerCase() === letter.toLowerCase()) { 
+        // return accumulator + 1
+        return accumulator + 1; 
+        // else return accumulator
+    } else {
+
+        return accumulator; 
+    }
+}
+// set seed to 0
+}, 0); 
+
+
+
+var friendFirstLetterCount = function (array, customer, letter){
+    // int var to use latter
+    let friendsArr;
+    // int for loop to loop through array
+    for(let i = 0; i < array.length; i++){
+        // int if chain to find if name in array = customer
+        if(array[i].name === customer){
+            friendsArr = array[i].friends;
+        }
+    }
+
+    // return reduce with friendsArr and a call back with accumulator and nameObj
+    return _.reduce(friendsArr, function(accumulator, nameObj){
+        // int if chain to check if 
+        if(nameObj.name[0].toUpperCase() === letter.toUpperCase()) {
+           return accumulator += 1;
+        }
+            return accumulator;
+            // set seed = 0
+    },0);
+
+
+};
+
+
+
+var friendsCount = function(array, name){
+
+ // call on _.each twice to loop through array and to access object
+ var mutualFriends = [];// create an empty array variable
+  _.each(array, function(object){
+    _.each(object.friends, function(friend){
+      if (friend.name === name){ // if friends name equals name that is given 
+        mutualFriends.push(object.name); // push name to mutual friends array
+      }
+    });
+  });
+  return mutualFriends; //return array mutual friends
+
+};
+
+var topThreeTags = function(array){
+var tagsArr = [];
+// call on each to loop through array and objects
+_.each(array,function(customer){
+    _.each(customer.tags, function(tag){
+        tagsArr.push(tag);
+    });
+});
+var tagsObject; 
+// use reduce to loop through tags array
+tagsObject = _.reduce(tagsArr, function(accumulator, tag){
+    if(accumulator[tag]) {
+    accumulator[tag] += 1; // reassign tag key 
+    return accumulator;
+    }
+    accumulator[tag] = 1;
+    return accumulator;
+    
+},{}); // seed should be an object
+// use object.entries to create an array with key value pairs
+ var result = Object.entries(tagsObject); // result is an array of sub arrays contains key value pairs
+ 
+//  console.log(result);
+ 
+ var topTags = [];
+ 
+ // loop through result to find the tags that occurred most often 
+ for(let i = 0; i < result.length; i++){
+     if(result[i][1] === 3) {
+        topTags.push(result[i][0]);
+     }
+ }
+ 
+return topTags; // return array of top tags
+ 
+
+};
+
+var genderCount = function (array){
+
+    var genderArr = [];
+
+for(let i = 0; i < array.length; i++) {
+   genderArr.push(array[i].gender);
+   console.log(genderArr);
+}
+
+return _.reduce(genderArr, function(accumulator, gender){
+// check to see if number occured
+//if the number is a key in our object
+if (accumulator[gender]){
+// add 1 to it's value
+accumulator[gender] += 1;
+return accumulator;
+}
+// if the number is not a property in our object 
+//make the key value pair with the value of 1
+accumulator[gender] = 1;
+return accumulator;
+  }, {});
+  
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
