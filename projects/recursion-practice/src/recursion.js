@@ -180,15 +180,49 @@ var exponent = function(base, exp, total=1) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+// output should be a boolean value
+  // base case:
+  // if number is 1, return true
+  if(n === 1) {
+    return true;
+  } else if (n < 1){ // account for anything below 1, negatives
+    return false;
+  } else { //return recursiveky
+  return  powerOfTwo(n/2);
+}
 
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  //base case:
+// if there is nothing, return string
+if(string.length === 0) {
+  return string;
+}
+// return string, using bracket notation, access the last character of string
+// and a recursive call and slice string so we lose a character every time
+return string[string.length - 1] + reverse(string.slice(0,string.length-1));
+  
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  // output: booleans
+// base case 
+// is there is nothing in the string or the string only has one character, return true
+if (string.length === 0 ||string.length === 1) {
+  return true; 
+} else {
+if (string[0].toLowerCase() !== string[string.length-1].toLowerCase()) {
+  return false; // checks that the first characters and last character dont equal one another
+} else {
+  return palindrome(string.substring(1,string.length-1).replace(/\s+/g, '')); // use substring to get new string
+}
+
+}
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -204,7 +238,16 @@ var modulo = function(x, y) {
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
 
-
+  if(y === 0 || x === 0){
+    return 0;
+  } 
+  if(y < 0){
+    return -x + multiply(x, y + 1);
+  
+  } else {
+  
+  return x + multiply(x, y - 1 );
+  } 
 
 };
 
@@ -227,6 +270,17 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+
+   // base case
+  // if there are nothing in the strings, return true
+  if(str1.length === 0 && str2.length === 0){
+    return true;
+  }// if first element of each string are equal, return recursive function . slice to alter string
+    if(str1[0] === str2[0]){
+  return compareStr(str1.slice(1), str2.slice(1));
+}
+    return false;
+
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
@@ -477,6 +531,35 @@ return [array[0], array[1]].concat(alternateSign(array.slice(2))); // return sta
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
 var numToText = function(str) {
+  //base case: lenght of a string
+  if (str.length === 0) return '';
+  // rec: no tail rec, result of the function call, substring of an string 
+  var tempStr = numToText(str.substring(0, str.length-1));
+  var replace;
+  // use a switch to replace the numerals witth strings
+  switch (str[str.length-1]) {
+    case '1': replace = 'one';
+      break;
+    case '2': replace = 'two';
+      break;
+    case '3': replace = 'three';
+      break;
+    case '4': replace = 'four';
+      break;
+    case '5': replace = 'five';
+      break;
+    case '6': replace = 'six';
+      break;
+    case '7': replace = 'seven';
+      break;
+    case '8': replace = 'eight';
+      break;
+    case '9': replace = 'nine';
+      break;
+    default: replace = str[str.length-1];
+      break;
+  }
+  return tempStr + replace;
 };
 
 // *** EXTRA CREDIT ***
