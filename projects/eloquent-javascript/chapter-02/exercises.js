@@ -41,12 +41,12 @@ for (var i = 1; i <= 15; i++){
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard(parm){ // parm = number rows and colums of a chessboard
+function drawChessboard(num){ // parm = number rows and colums of a chessboard
 // int opuput var
 let board = '';
 
-for(var row = 0 ; row < number; row++) {
-  for( var col = 0; col < number; col++) {
+for(var row = 0 ; row < num; row++) {
+  for( var col = 0; col < num; col++) {
     if ((row + col) % 2 === 0) {
       board += ' ';
     } else {
@@ -59,6 +59,7 @@ for(var row = 0 ; row < number; row++) {
  console.log(board);
 
 }
+console.log(drawChessboard(5));
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
