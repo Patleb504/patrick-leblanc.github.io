@@ -533,7 +533,7 @@ return [array[0], array[1]].concat(alternateSign(array.slice(2))); // return sta
 var numToText = function(str) {
   //base case: lenght of a string
   if (str.length === 0) return '';
-  // rec: no tail rec, result of the function call, substring of an string 
+  // recursion no tail rec, result of the function call, substring of an string 
   var tempStr = numToText(str.substring(0, str.length-1));
   var replace;
   // use a switch to replace the numerals witth strings

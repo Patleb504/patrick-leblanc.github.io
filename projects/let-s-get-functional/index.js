@@ -105,19 +105,16 @@ return array.reduce(function(accumulator, person){
 
 var firstLetterCount = function(array, letter) {
 // reduce
-    _.reduce(array, function(accumulator, person)) {
-    // set name and letter to lowerCase for equal comparison
-    if(person.name[0].toLowerCase() === letter.toLowerCase()) { 
-        // return accumulator + 1
-        return accumulator + 1; 
-        // else return accumulator
+return array.reduce(function(accumulator, person) {
+    if(person.name[0].toLowerCase() === letter.toLowerCase()) { // set both to lowercase for better comparison
+        return accumulator + 1; // add 1 to accumulator and return 
     } else {
-
-        return accumulator; 
+        return accumulator; // return accumulator
     }
-}
-// set seed to 0
-}, 0); 
+
+},0); // seed 0
+
+};
 
 
 
@@ -202,7 +199,7 @@ return topTags; // return array of top tags
 
 var genderCount = function (array){
 
-    var genderArr = [];
+let genderArr = [];
 
 for(let i = 0; i < array.length; i++) {
    genderArr.push(array[i].gender);
