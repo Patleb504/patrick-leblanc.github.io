@@ -39,10 +39,10 @@ module.exports.identity = identity;
 
 
 /**
- * typeOf:
+ * typeOf: return a string of indicating the type of the operand's value.
  * 
- * @param {*} value 
- * @returns 
+ * @param {any} value 
+ * @returns {string} 
  */
 _.typeOf = function(value){
     if (typeof value === 'string'){

@@ -110,17 +110,47 @@ function prepend(value, item) {
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, num) {
+  var listArray = listToArray(list);
+  return listArray[num];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(x, y) {
+// determain if x and y are BOTH not considered objects
+if(typeof x !== 'object' && typeof y !== 'object'){
+  return x === y;
+  }
+  // determine if x OR y is not an object
+  if(typeof x !== 'object' || typeof y !== 'object'){
+    return false;
+  }
+  // x and y are both complex pices of date
+  let xKeys = object.keys(x); // this will create an array of keys
+  let yKeys = object.keys(y); // ['a']
+  
+  if(xKeys.length !== yKeys.length){
+    return false;
+  }
+  // iterlate through the array of keys to make sure they keys are values
+  for (let i = 0; i < xKeys.length; i++){
+    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+      return false;
+    }
+  } 
+  return true;
 }
+// console.log(deepEqual('a', 'a')); // true
+// console.log(deepEqual(1, 2)); //false
+// console.log(deepEqual({a: 1}, {a: 1}));// true
+// console.log(deepEqual({a: 1}, {a: 2})); // false
+
+// console.log({a: 1} === {a: 1});
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
