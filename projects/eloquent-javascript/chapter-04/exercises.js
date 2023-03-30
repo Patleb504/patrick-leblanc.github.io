@@ -119,29 +119,32 @@ function nth(list, num) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(x, y) {
-// determain if x and y are BOTH not considered objects
-if(typeof x !== 'object' && typeof y !== 'object'){
-  return x === y;
-  }
-  // determine if x OR y is not an object
-  if(typeof x !== 'object' || typeof y !== 'object'){
+function deepEqual(a, b) {
+
+if (a === b) return true;
+  //second if statement checks for null values and non-objects
+  if (a == null || typeof a != "object" ||
+      b == null || typeof b != "object")
     return false;
-  }
-  // x and y are both complex pices of date
-  let xKeys = object.keys(x); // this will create an array of keys
-  let yKeys = object.keys(y); // ['a']
-  
-  if(xKeys.length !== yKeys.length){
-    return false;
-  }
-  // iterlate through the array of keys to make sure they keys are values
-  for (let i = 0; i < xKeys.length; i++){
-    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+  //declare counters
+  var propsInA = 0, propsInB = 0;
+	//for-in loop counts the number of properties in a and b
+  for (var prop in a)
+    propsInA += 1;
+
+  for (var prop in b) {
+    propsInB += 1;
+    //if b has a prop not in a or if, upon recursive function all,
+    //the properties don't have the same values, return false
+    if (!(prop in a) || !deepEqual(a[prop], b[prop]))
       return false;
-    }
-  } 
-  return true;
+  }
+	//otherwise, return whether the number of properties are the same
+  return propsInA == propsInB;
+
+
+
+
 }
 // console.log(deepEqual('a', 'a')); // true
 // console.log(deepEqual(1, 2)); //false
